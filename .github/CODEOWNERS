@@ -1,0 +1,26 @@
+# Every change is reviewed by a maintainer.
+* @innerluxesdev
+
+# The listing of folders, the reading of files, the readers of YAML, XML and JSON, the readers of each kind of feed,
+# the checks across feeds and files, the points of the public pages and the output decide every result and what is read
+# from the disk; changes need extra care.
+/src/walk.js @innerluxesdev
+/src/files.js @innerluxesdev
+/src/yaml.js @innerluxesdev
+/src/xml.js @innerluxesdev
+/src/json.js @innerluxesdev
+/src/urls.js @innerluxesdev
+/src/versions.js @innerluxesdev
+/src/feed.js @innerluxesdev
+/src/electron.js @innerluxesdev
+/src/sparkle.js @innerluxesdev
+/src/tauri.js @innerluxesdev
+/src/squirrel.js @innerluxesdev
+/src/release.js @innerluxesdev
+/src/data.js @innerluxesdev
+/research/ @innerluxesdev
+/src/csv.js @innerluxesdev
+/src/config.js @innerluxesdev
+/src/rules.js @innerluxesdev
+/src/check.js @innerluxesdev
+/src/report.js @innerluxesdev
