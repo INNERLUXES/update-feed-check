@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Quillmere Clip</title>
+    <item>
+      <title>Quillmere Clip 4.1.2</title>
+      <pubDate>Mon, 31 Aug 2026 08:00:00 +0000</pubDate>
+      <sparkle:version>412</sparkle:version>
+      <sparkle:shortVersionString>4.1.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
+      <sparkle:releaseNotesLink>https://quillmere.test/clip/notes/4.1.2.html</sparkle:releaseNotesLink>
+      <enclosure url="http://downloads.quillmere.test/clip/QuillmereClip-4.1.2.zip" length="104" type="application/octet-stream" sparkle:edSignature="WqSt7RSfsi1hN44GOfXIyRmQoOm8qlzdRy5sLxMSNLCXsDrrToKWlOCvqbTflqFuvqM9mGeUKX70EYRhju6ZUg=="/>
+    </item>
+    <item>
+      <title>Quillmere Clip 4.2.0</title>
+      <sparkle:version>420</sparkle:version>
+      <sparkle:shortVersionString>4.2.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
+      <sparkle:phasedRolloutInterval>86400</sparkle:phasedRolloutInterval>
+      <description><![CDATA[<p>Clips keep their links.</p>]]></description>
+      <enclosure url="https://cdn-eu.quillmere.test/clip/QuillmereClip-4.2.0.zip" length="109" type="application/octet-stream" sparkle:edSignature="nEjc/oB/kgpx9i2+dcAwpf9jRYA/5tpuStdv4u3mqrG9eFUdGui76PDmNMUn3eXnRSyD2/B1XphePhu7bNkgdw=="/>
+    </item>
+    <item>
+      <title>Quillmere Clip 4.0.0</title>
+      <pubDate>Mon, 31 Aug 2026 08:00:00 +0000</pubDate>
+      <sparkle:version>400</sparkle:version>
+      <sparkle:shortVersionString>4.0.0</sparkle:shortVersionString>
+      <enclosure url="https://downloads.quillmere.test/clip/QuillmereClip-4.0.0.zip" length="101" type="application/octet-stream" sparkle:dsaSignature="MCwCFHN0YW5kcy1pbi1mb3ItYS1kc2Etc2lnAhR0aGF0LXdhcy1uZXZlci1yZWFs"/>
+    </item>
+  </channel>
+</rss>

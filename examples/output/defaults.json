@@ -1,0 +1,36 @@
+{
+  "name": "built-in defaults",
+  "rules": {
+    "missingHash": "error",
+    "missingSignature": "error",
+    "missingUrl": "error",
+    "insecureUrl": "error",
+    "mixedHosts": "warning",
+    "invalidVersion": "error",
+    "itemOrder": "error",
+    "duplicateVersion": "error",
+    "versionNotIncreased": "error",
+    "distFileMissing": "error",
+    "sizeMismatch": "error",
+    "hashMismatch": "error",
+    "missingPlatform": "warning",
+    "invalidRollout": "error",
+    "mixedVersions": "warning",
+    "missingReleaseNotes": "info"
+  },
+  "requiredPlatforms": {
+    "tauri": [
+      "windows-x86_64",
+      "darwin-aarch64",
+      "darwin-x86_64",
+      "linux-x86_64"
+    ],
+    "electron": [
+      "latest.yml",
+      "latest-mac.yml",
+      "latest-linux.yml"
+    ]
+  },
+  "minSeverity": "info",
+  "failOn": "error"
+}

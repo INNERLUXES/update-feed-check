@@ -1,0 +1,13 @@
+version: 2.0.1
+files:
+  - url: Larkspan-Board-2.0.1-mac.zip
+    sha512: aZHiAOQdYGJOioixz7mrSPIxk8LkiKDiE9cFqDWGjehSEUzyYpQVccsmB9zeiSP1jk7IQ1qcllbMRlXzLbdLkw==
+    size: 122
+  - url: Larkspan-Board-2.0.1.dmg
+    sha512: QiBN0AUTd+mCBSxptf/hT2RtQCWfebEqCme4Z62DpJ42+TE9wQkjWO/B7LKvwf0J9LmNPH3KvpcN7iQHptumqQ==
+    size: 118
+path: Larkspan-Board-2.0.1-mac.zip
+sha512: aZHiAOQdYGJOioixz7mrSPIxk8LkiKDiE9cFqDWGjehSEUzyYpQVccsmB9zeiSP1jk7IQ1qcllbMRlXzLbdLkw==
+releaseDate: '2026-09-14T09:30:00.000Z'
+releaseName: Larkspan Board 2.0.1
+releaseNotes: Boards load in half the time, and cards keep their colour after a copy.

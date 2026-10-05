@@ -1,0 +1,11 @@
+{
+  "version": "0.9.1",
+  "notes": "The tray icon follows the theme.",
+  "pub_date": "2026-09-14T09:30:00Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIGEgbWFkZS11cCBrZXkKaFAyYnJETTYxNUZVTklLV0lFK24rTVUzcVc0SW1ENWZjN1AxcktqbzdmYz0KdHJ1c3RlZCBjb21tZW50OiBtYWRlIHVwIGZvciB0aGUgZXhhbXBsZSBwcmV2ClNRTXk3RkVyQklwQjhvd2JGSFdPdEszckE0WkVoTGZhVUpEK1RxSU16RXM9Cg==",
+      "url": "https://downloads.larkspan.test/tray/Larkspan.Tray_0.9.1_x64-setup.exe"
+    }
+  }
+}

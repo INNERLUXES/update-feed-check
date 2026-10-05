@@ -1,0 +1,15 @@
+version: 3.2.0
+files:
+  - url: Quillmere-Notes-3.2.0-mac.zip
+    sha512: OHeCr1KwICB9YXHpqYCOx4y3taVkndWk9E7ehz1B2sD6VLjDqkrWFmvuEm1eysOWpsKkJ0SMvVVEnIaGvoKBvw==
+    size: 132
+  - url: Quillmere-Notes-3.2.0.dmg
+    sha512: 1leekZ5vZ/b66CSiaeTQOMGCV1LdLYkuwS1IvCwRkreOy4ndp61VYaqnuJuCHCOFQRvCMnLb3oYSKUaA4nUEXw==
+    size: 119
+path: Quillmere-Notes-3.2.0-mac.zip
+sha512: OHeCr1KwICB9YXHpqYCOx4y3taVkndWk9E7ehz1B2sD6VLjDqkrWFmvuEm1eysOWpsKkJ0SMvVVEnIaGvoKBvw==
+releaseDate: '2026-09-14T09:30:00.000Z'
+releaseName: Quillmere Notes 3.2.0
+releaseNotes: |
+  Faster sync of large notebooks.
+  A note that holds a table no longer crashes the editor.

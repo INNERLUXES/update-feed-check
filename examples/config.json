@@ -1,0 +1,5 @@
+{
+  "name": "Quillmere release review",
+  "requiredPlatforms": { "tauri": ["windows-x86_64", "darwin-x86_64", "darwin-aarch64", "linux-x86_64"] },
+  "rules": { "missingReleaseNotes": "warning" }
+}

@@ -1,0 +1,10 @@
+version: 2.0.1
+files:
+  - url: Larkspan-Board-2.0.1.AppImage
+    sha512: il2Yr1SRrbnrqzbaHug6CqXtwvY64AZ9DJkF2fMjAFZmriamg3eMK0u8CuoyTuaz/axGGQ/gjuSyN6QwbJzAiw==
+    size: 116
+path: Larkspan-Board-2.0.1.AppImage
+sha512: il2Yr1SRrbnrqzbaHug6CqXtwvY64AZ9DJkF2fMjAFZmriamg3eMK0u8CuoyTuaz/axGGQ/gjuSyN6QwbJzAiw==
+releaseDate: '2026-09-14T09:30:00.000Z'
+releaseName: Larkspan Board 2.0.1
+releaseNotes: Boards load in half the time, and cards keep their colour after a copy.

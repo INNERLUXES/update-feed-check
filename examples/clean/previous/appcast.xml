@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Larkspan Meter</title>
+    <item>
+      <title>Larkspan Meter 5.2.0</title>
+      <pubDate>Mon, 31 Aug 2026 08:00:00 +0000</pubDate>
+      <sparkle:version>520</sparkle:version>
+      <sparkle:shortVersionString>5.2.0</sparkle:shortVersionString>
+      <sparkle:releaseNotesLink>https://larkspan.test/meter/notes/5.2.0.html</sparkle:releaseNotesLink>
+      <enclosure url="https://downloads.larkspan.test/meter/LarkspanMeter-5.2.0.zip" length="106" type="application/octet-stream" sparkle:edSignature="RnWtZfPKGOoO6KdfP9ZsxmXUJyDqcolgqllLh9i9ciMRIq3cG5D9U3UnP5zOsR/7ijwJgP44hV7l+wN03ILjwg=="/>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,11 @@
+version: 2.0.1
+files:
+  - url: Larkspan-Board-Setup-2.0.1.exe
+    sha512: qlyVtbzCIav9daJFcf8aJQeEC+0f1dB12YkUBC4UjbGK9gwbL7FkhuLBoiB8McHP/lv9MCb2JvMwCAAkZfOpPA==
+    size: 119
+path: Larkspan-Board-Setup-2.0.1.exe
+sha512: qlyVtbzCIav9daJFcf8aJQeEC+0f1dB12YkUBC4UjbGK9gwbL7FkhuLBoiB8McHP/lv9MCb2JvMwCAAkZfOpPA==
+releaseDate: '2026-09-14T09:30:00.000Z'
+releaseName: Larkspan Board 2.0.1
+releaseNotes: Boards load in half the time, and cards keep their colour after a copy.
+stagingPercentage: 50

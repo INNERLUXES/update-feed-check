@@ -1,0 +1,9 @@
+version: 3.1.4
+files:
+  - url: Quillmere-Notes-3.1.4.AppImage
+    sha512: L5hKVrSWyBf3qHAIVsqZup6ouT9myY/EIJUuXCL/YdmvZL+s3DPztPKXQfgjq501ChvEN61xxr0NfzZO5b5xmw==
+    size: 118
+path: Quillmere-Notes-3.1.4.AppImage
+sha512: L5hKVrSWyBf3qHAIVsqZup6ouT9myY/EIJUuXCL/YdmvZL+s3DPztPKXQfgjq501ChvEN61xxr0NfzZO5b5xmw==
+releaseDate: '2026-09-14T09:30:00.000Z'
+releaseNotes: Notebooks open faster.

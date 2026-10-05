@@ -1,0 +1,23 @@
+{
+  "version": "0.9.2",
+  "notes": "The tray menu shows the next meeting.",
+  "pub_date": "2026-09-14T09:30:00Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIGEgbWFkZS11cCBrZXkKd0VZMHEvUEdYbXFRVXVwUndQNGhUVTBrQkxMRjhMckxHeEoyU21SZEZuZz0KdHJ1c3RlZCBjb21tZW50OiBtYWRlIHVwIGZvciB0aGUgZXhhbXBsZSB0cmF5dworaXFmQ2pKTVVsWTBBMWxyVjhJMmVZdVJhZ1BvV1I5L0tEN2t5cUtIdGk4PQo=",
+      "url": "https://downloads.larkspan.test/tray/Larkspan.Tray_0.9.2_x64-setup.exe"
+    },
+    "darwin-aarch64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIGEgbWFkZS11cCBrZXkKbS81UHVGaGtYcVJ1a1ZURUI4NEQzamxETW1PRXJlZzRTSzFaeWdjSVRlYz0KdHJ1c3RlZCBjb21tZW50OiBtYWRlIHVwIGZvciB0aGUgZXhhbXBsZSB0cmF5bWEKTno1T3ZTWjZXbUJWSEVKRWRFaHpBM1Bld1p4TDg4K3pwZkpSeUJjR21Kcz0K",
+      "url": "https://downloads.larkspan.test/tray/Larkspan.Tray_aarch64.app.tar.gz"
+    },
+    "darwin-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIGEgbWFkZS11cCBrZXkKUW1qajhkWWhqVmZ4ajVscmJjS1hHM2lxUFR3c0VDQ2JJWXhhQTZwODFTND0KdHJ1c3RlZCBjb21tZW50OiBtYWRlIHVwIGZvciB0aGUgZXhhbXBsZSB0cmF5bXgKVnNWL2lUSkFLeVI3TlB4QUhPc2pXTjMwNmU3UWVzOTFrK3F1OW12N0tTST0K",
+      "url": "https://downloads.larkspan.test/tray/Larkspan.Tray_x64.app.tar.gz"
+    },
+    "linux-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIGEgbWFkZS11cCBrZXkKVXhkNm1RVDQ5eFZxWmxZUStIbmhMRy9ieUZvaTh1aEk3dXFFdXJ4QmQ1RT0KdHJ1c3RlZCBjb21tZW50OiBtYWRlIHVwIGZvciB0aGUgZXhhbXBsZSB0cmF5bAp1aTRXUHA5eFF1YngyaSs2YlgvU0ZuY0x6Z0JnRllJVUdlWEUzejc5M2tjPQo=",
+      "url": "https://downloads.larkspan.test/tray/Larkspan.Tray_0.9.2_amd64.AppImage"
+    }
+  }
+}

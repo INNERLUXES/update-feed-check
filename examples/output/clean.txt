@@ -1,0 +1,47 @@
+update-feed-check: examples/clean/release
+input: 1 folder and 0 files named; 6 feeds: 3 electron-updater, 1 Sparkle, 1 Tauri, 1 Squirrel.Windows; 0 other files passed over; 0 folders inside passed over; 0 links not followed
+dist: examples/clean/dist, 11 files
+previous: examples/clean/previous, 6 feeds
+config: built-in defaults: Tauri platforms windows-x86_64, darwin-aarch64, darwin-x86_64 and linux-x86_64; electron-updater feeds latest.yml, latest-mac.yml and latest-linux.yml; minimum severity info; fail on error
+rules: missing-hash (error); missing-signature (error); missing-url (error); insecure-url (error); mixed-hosts (warning); invalid-version (error); item-order (error); duplicate-version (error); version-not-increased (error); dist-file-missing (error); size-mismatch (error); hash-mismatch (error); missing-platform (warning); invalid-rollout (error); mixed-versions (warning); missing-release-notes (info); unreadable-feed (error); scan-limit (error)
+findings: 0
+
+Feeds (6)
+
+  feed                                       kind              version      entries  error  warning  info
+  examples/clean/release/RELEASES            Squirrel.Windows  1.6.0        3        0      0        0
+  examples/clean/release/appcast.xml         Sparkle           5.3.0 (530)  2        0      0        0
+  examples/clean/release/larkspan-tray.json  Tauri             0.9.2        4        0      0        0
+  examples/clean/release/latest-linux.yml    electron-updater  2.0.1        1        0      0        0
+  examples/clean/release/latest-mac.yml      electron-updater  2.0.1        2        0      0        0
+  examples/clean/release/latest.yml          electron-updater  2.0.1        1        0      0        0
+
+Rules (18)
+
+  rule                   level    findings
+  missing-hash           error    0
+  missing-signature      error    0
+  missing-url            error    0
+  insecure-url           error    0
+  mixed-hosts            warning  0
+  invalid-version        error    0
+  item-order             error    0
+  duplicate-version      error    0
+  version-not-increased  error    0
+  dist-file-missing      error    0
+  size-mismatch          error    0
+  hash-mismatch          error    0
+  missing-platform       warning  0
+  invalid-rollout        error    0
+  mixed-versions         warning  0
+  missing-release-notes  info     0
+  unreadable-feed        error    0
+  scan-limit             error    0
+
+Findings (0)
+
+  none
+
+This check reads the feed files and the files beside them on disk and fetches nothing. A finding is a lead with a file and a line, and a clean result is not a signature verification and not a certification (docs/limits.md).
+
+RESULT: PASS - no finding at or above error

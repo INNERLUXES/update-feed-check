@@ -1,0 +1,11 @@
+{
+  "version": "1.5.0",
+  "notes": "Sync shows its progress.",
+  "pub_date": "2026-09-14T09:30:00Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIGEgbWFkZS11cCBrZXkKaFAyYnJETTYxNUZVTklLV0lFK24rTVUzcVc0SW1ENWZjN1AxcktqbzdmYz0KdHJ1c3RlZCBjb21tZW50OiBtYWRlIHVwIGZvciB0aGUgZXhhbXBsZSBwcmV2ClNRTXk3RkVyQklwQjhvd2JGSFdPdEszckE0WkVoTGZhVUpEK1RxSU16RXM9Cg==",
+      "url": "https://downloads.quillmere.test/sync/Quillmere.Sync_1.5.0_x64-setup.exe"
+    }
+  }
+}

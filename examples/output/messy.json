@@ -1,0 +1,798 @@
+{
+  "tool": "update-feed-check",
+  "version": "1.0.0",
+  "input": {
+    "paths": [
+      "examples/messy/release"
+    ],
+    "folders": 1,
+    "files": 0,
+    "feeds": 5,
+    "byKind": {
+      "electron": 3,
+      "sparkle": 1,
+      "tauri": 1,
+      "squirrel": 0
+    },
+    "otherFiles": 0,
+    "foldersPassedOver": 0,
+    "links": 0,
+    "dist": {
+      "folder": "examples/messy/dist",
+      "files": 7
+    },
+    "previous": {
+      "path": "examples/messy/previous",
+      "feeds": 4
+    }
+  },
+  "config": {
+    "file": "examples/config.json",
+    "name": "Quillmere release review",
+    "requiredPlatforms": {
+      "tauri": [
+        "windows-x86_64",
+        "darwin-x86_64",
+        "darwin-aarch64",
+        "linux-x86_64"
+      ],
+      "electron": [
+        "latest.yml",
+        "latest-mac.yml",
+        "latest-linux.yml"
+      ]
+    },
+    "minSeverity": "info",
+    "failOn": "error",
+    "rules": [
+      {
+        "id": "missing-hash",
+        "key": "missingHash",
+        "level": "error",
+        "rule": "a download of an electron-updater feed with no sha512, or a package of RELEASES with no SHA1"
+      },
+      {
+        "id": "missing-signature",
+        "key": "missingSignature",
+        "level": "error",
+        "rule": "an appcast enclosure with no EdDSA signature, or a Tauri platform with no signature"
+      },
+      {
+        "id": "missing-url",
+        "key": "missingUrl",
+        "level": "error",
+        "rule": "a feed or an entry of it that names no file to download"
+      },
+      {
+        "id": "insecure-url",
+        "key": "insecureUrl",
+        "level": "error",
+        "rule": "an absolute address of a download or of release notes that is not https"
+      },
+      {
+        "id": "mixed-hosts",
+        "key": "mixedHosts",
+        "level": "warning",
+        "rule": "a download on another host than the first download of the same feed"
+      },
+      {
+        "id": "invalid-version",
+        "key": "invalidVersion",
+        "level": "error",
+        "rule": "a version that the updater cannot read or compare"
+      },
+      {
+        "id": "item-order",
+        "key": "itemOrder",
+        "level": "error",
+        "rule": "an appcast whose first item is not the one with the highest sparkle:version"
+      },
+      {
+        "id": "duplicate-version",
+        "key": "duplicateVersion",
+        "level": "error",
+        "rule": "the same version in two entries of one feed"
+      },
+      {
+        "id": "version-not-increased",
+        "key": "versionNotIncreased",
+        "level": "error",
+        "rule": "a version that is equal to or lower than the one of the previous feed"
+      },
+      {
+        "id": "dist-file-missing",
+        "key": "distFileMissing",
+        "level": "error",
+        "rule": "a file the feed offers that is not in the dist folder"
+      },
+      {
+        "id": "size-mismatch",
+        "key": "sizeMismatch",
+        "level": "error",
+        "rule": "a size or length in the feed that differs from the file in the dist folder"
+      },
+      {
+        "id": "hash-mismatch",
+        "key": "hashMismatch",
+        "level": "error",
+        "rule": "a checksum in the feed that differs from the one of the file in the dist folder"
+      },
+      {
+        "id": "missing-platform",
+        "key": "missingPlatform",
+        "level": "warning",
+        "rule": "a Tauri feed without one of windows-x86_64, darwin-x86_64, darwin-aarch64 and linux-x86_64, or a folder without one of latest.yml, latest-mac.yml and latest-linux.yml"
+      },
+      {
+        "id": "invalid-rollout",
+        "key": "invalidRollout",
+        "level": "error",
+        "rule": "a rollout value that the updater cannot use"
+      },
+      {
+        "id": "mixed-versions",
+        "key": "mixedVersions",
+        "level": "warning",
+        "rule": "an electron-updater feed whose version is lower than another feed of the same channel in the folder"
+      },
+      {
+        "id": "missing-release-notes",
+        "key": "missingReleaseNotes",
+        "level": "warning",
+        "rule": "an update with no release notes in the feed"
+      },
+      {
+        "id": "unreadable-feed",
+        "key": null,
+        "level": "error",
+        "rule": "a feed file that the tool could not read as its kind"
+      },
+      {
+        "id": "scan-limit",
+        "key": null,
+        "level": "error",
+        "rule": "a folder or a set of inputs past a limit of the run"
+      }
+    ]
+  },
+  "feeds": [
+    {
+      "file": "examples/messy/release/appcast.xml",
+      "kind": "sparkle",
+      "version": "4.2.0 (420)",
+      "entries": 3,
+      "read": true,
+      "findings": 6,
+      "byLevel": {
+        "error": 4,
+        "warning": 2,
+        "info": 0
+      }
+    },
+    {
+      "file": "examples/messy/release/latest-linux.yml",
+      "kind": "electron",
+      "version": "3.1.4",
+      "entries": 1,
+      "read": true,
+      "findings": 4,
+      "byLevel": {
+        "error": 2,
+        "warning": 2,
+        "info": 0
+      }
+    },
+    {
+      "file": "examples/messy/release/latest-mac.yml",
+      "kind": "electron",
+      "version": "3.2.0",
+      "entries": 2,
+      "read": true,
+      "findings": 1,
+      "byLevel": {
+        "error": 1,
+        "warning": 0,
+        "info": 0
+      }
+    },
+    {
+      "file": "examples/messy/release/latest.yml",
+      "kind": "electron",
+      "version": "3.2.0",
+      "entries": 1,
+      "read": true,
+      "findings": 2,
+      "byLevel": {
+        "error": 2,
+        "warning": 0,
+        "info": 0
+      }
+    },
+    {
+      "file": "examples/messy/release/quillmere-sync.json",
+      "kind": "tauri",
+      "version": "1.4.0",
+      "entries": 3,
+      "read": true,
+      "findings": 4,
+      "byLevel": {
+        "error": 3,
+        "warning": 1,
+        "info": 0
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "missing-hash",
+      "level": "error",
+      "findings": 1
+    },
+    {
+      "id": "missing-signature",
+      "level": "error",
+      "findings": 2
+    },
+    {
+      "id": "missing-url",
+      "level": "error",
+      "findings": 0
+    },
+    {
+      "id": "insecure-url",
+      "level": "error",
+      "findings": 1
+    },
+    {
+      "id": "mixed-hosts",
+      "level": "warning",
+      "findings": 1
+    },
+    {
+      "id": "invalid-version",
+      "level": "error",
+      "findings": 0
+    },
+    {
+      "id": "item-order",
+      "level": "error",
+      "findings": 1
+    },
+    {
+      "id": "duplicate-version",
+      "level": "error",
+      "findings": 0
+    },
+    {
+      "id": "version-not-increased",
+      "level": "error",
+      "findings": 2
+    },
+    {
+      "id": "dist-file-missing",
+      "level": "error",
+      "findings": 1
+    },
+    {
+      "id": "size-mismatch",
+      "level": "error",
+      "findings": 1
+    },
+    {
+      "id": "hash-mismatch",
+      "level": "error",
+      "findings": 1
+    },
+    {
+      "id": "missing-platform",
+      "level": "warning",
+      "findings": 1
+    },
+    {
+      "id": "invalid-rollout",
+      "level": "error",
+      "findings": 2
+    },
+    {
+      "id": "mixed-versions",
+      "level": "warning",
+      "findings": 1
+    },
+    {
+      "id": "missing-release-notes",
+      "level": "warning",
+      "findings": 2
+    },
+    {
+      "id": "unreadable-feed",
+      "level": "error",
+      "findings": 0
+    },
+    {
+      "id": "scan-limit",
+      "level": "error",
+      "findings": 0
+    }
+  ],
+  "findings": [
+    {
+      "rule": "item-order",
+      "level": "error",
+      "kind": "sparkle",
+      "file": "examples/messy/release/appcast.xml",
+      "line": 8,
+      "column": 24,
+      "at": "examples/messy/release/appcast.xml:8",
+      "found": "the first item has sparkle:version 412, but the item at line 16 has 420, which is higher; put the newest item first",
+      "fix": "put the items in order, newest first, as generate_appcast writes them",
+      "basis": [
+        {
+          "text": "an appcast item has sparkle:version, the version the machine compares, sparkle:shortVersionString for people, and an enclosure with the url, length and type of the archive",
+          "source": "Publishing an update (Sparkle)",
+          "url": "https://sparkle-project.org/documentation/publishing/"
+        }
+      ],
+      "own": "the tool's own choice: the first item of an appcast must have the highest sparkle:version; Sparkle picks the best item itself, but people, other tools and scripts that read the appcast take the first item as the newest"
+    },
+    {
+      "rule": "insecure-url",
+      "level": "error",
+      "kind": "sparkle",
+      "file": "examples/messy/release/appcast.xml",
+      "line": 12,
+      "column": 23,
+      "at": "examples/messy/release/appcast.xml:12",
+      "found": "the download \"http://downloads.quillmere.test/clip/QuillmereClip-4.1.2.zip\" uses http, not https, so it can be read or changed on the way",
+      "fix": "serve the file over https and write the https address in the feed",
+      "basis": [
+        {
+          "text": "the updater enforces TLS in production unless a setting lets it accept endpoints that are not HTTPS",
+          "source": "Updater plugin (Tauri)",
+          "url": "https://v2.tauri.app/plugin/updater/"
+        },
+        {
+          "text": "an app keeps its EdDSA public key in SUPublicEDKey, every update is signed with the private key, and updates should be served over HTTPS",
+          "source": "Documentation, basic setup and EdDSA signatures (Sparkle)",
+          "url": "https://sparkle-project.org/documentation/"
+        }
+      ],
+      "own": "every absolute address of a download, a release notes link or a package of RELEASES whose scheme is not https; an address with no scheme is relative to the feed and is served the way the feed is; namespace declarations of XML are not addresses and are not read"
+    },
+    {
+      "rule": "invalid-rollout",
+      "level": "error",
+      "kind": "sparkle",
+      "file": "examples/messy/release/appcast.xml",
+      "line": 19,
+      "column": 38,
+      "at": "examples/messy/release/appcast.xml:19",
+      "found": "the item of version 420 has sparkle:phasedRolloutInterval but no pubDate, which Sparkle needs to place the groups of a phased rollout",
+      "fix": "write the share as a number from 0 to 100 (a percentage for Squirrel.Windows, with # right after the size), and give a phased Sparkle item its pubDate",
+      "basis": [
+        {
+          "text": "a staged rollout is set by hand with stagingPercentage in the update info file, a number from 0 to 100 that is the share of users who get the version",
+          "source": "Auto Update (electron-builder)",
+          "url": "https://www.electron.build/docs/features/auto-update"
+        },
+        {
+          "text": "sparkle:phasedRolloutInterval gives the number of seconds between seven groups of users, and the item must then have a pubDate",
+          "source": "Publishing an update (Sparkle)",
+          "url": "https://sparkle-project.org/documentation/publishing/"
+        },
+        {
+          "text": "a staged rollout adds # and a percentage after the size, with no space before # for clients older than 1.4.0, and a pulled version must be followed by a higher one",
+          "source": "Staged Rollouts (Squirrel.Windows docs on GitHub)",
+          "url": "https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/using/staged-rollouts.md"
+        }
+      ],
+      "own": "a stagingPercentage that is not a number from 0 to 100, a sparkle:phasedRolloutInterval that is not a whole number of seconds above 0 or that has no pubDate in its item, and a \"# nn%\" of RELEASES that is not from 0% to 100% or has a space before #"
+    },
+    {
+      "rule": "missing-signature",
+      "level": "error",
+      "kind": "sparkle",
+      "file": "examples/messy/release/appcast.xml",
+      "line": 28,
+      "column": 7,
+      "at": "examples/messy/release/appcast.xml:28",
+      "found": "the enclosure of version 400 has no sparkle:edSignature, only the deprecated sparkle:dsaSignature",
+      "fix": "sign the archive with the private key of the app (generate_appcast for Sparkle, the signer of the Tauri CLI) and put the signature itself in the feed",
+      "basis": [
+        {
+          "text": "DSA signatures are deprecated and kept only for the move to EdDSA; after it, every update in the appcast carries its sparkle:edSignature",
+          "source": "Migrating to EdDSA from DSA (Sparkle)",
+          "url": "https://sparkle-project.org/documentation/eddsa-migration/"
+        },
+        {
+          "text": "an app keeps its EdDSA public key in SUPublicEDKey, every update is signed with the private key, and updates should be served over HTTPS",
+          "source": "Documentation, basic setup and EdDSA signatures (Sparkle)",
+          "url": "https://sparkle-project.org/documentation/"
+        },
+        {
+          "text": "the signature is the content of the .sig file of the build; a path or a URL in its place does not work",
+          "source": "Updater plugin (Tauri)",
+          "url": "https://v2.tauri.app/plugin/updater/"
+        }
+      ],
+      "own": "an enclosure of an appcast, delta enclosures too, with no sparkle:edSignature or one that is not the base64 of 64 bytes, and a Tauri platform with no signature or with a path or address in its place; the tool cannot check a signature against the public key of the app"
+    },
+    {
+      "rule": "version-not-increased",
+      "level": "error",
+      "kind": "electron",
+      "file": "examples/messy/release/latest-linux.yml",
+      "line": 1,
+      "column": 10,
+      "at": "examples/messy/release/latest-linux.yml:1",
+      "found": "the version 3.1.4 is the same as 3.1.4 in the previous electron-updater feed examples/messy/previous/latest-linux.yml, so clients that have it will not update",
+      "fix": "give the release a version higher than the one already published; never publish a version again with other files",
+      "basis": [
+        {
+          "text": "a release that is pulled must be followed by a higher version number, not by the same version released again",
+          "source": "Auto Update (electron-builder)",
+          "url": "https://www.electron.build/docs/features/auto-update"
+        },
+        {
+          "text": "a staged rollout adds # and a percentage after the size, with no space before # for clients older than 1.4.0, and a pulled version must be followed by a higher one",
+          "source": "Staged Rollouts (Squirrel.Windows docs on GitHub)",
+          "url": "https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/using/staged-rollouts.md"
+        },
+        {
+          "text": "versions compare part by part as numbers, a pre-release ranks below its release, and build metadata is left out of the comparison",
+          "source": "Semantic Versioning",
+          "url": "https://semver.org/"
+        }
+      ],
+      "own": "only with --previous: the newest version of a feed against the newest version of the feed of the same name in --previous, or of the one feed of the same kind there; equal or lower is reported, because clients that have the previous version will not take it"
+    },
+    {
+      "rule": "missing-hash",
+      "level": "error",
+      "kind": "electron",
+      "file": "examples/messy/release/latest-linux.yml",
+      "line": 3,
+      "column": 10,
+      "at": "examples/messy/release/latest-linux.yml:3",
+      "found": "the file \"Quillmere-Notes-3.1.4.AppImage\" has no sha512, so electron-updater cannot check the download",
+      "fix": "build the feed again with the tool that made it, so that each download has its checksum, rather than writing the value by hand",
+      "basis": [
+        {
+          "text": "electron-updater checks each download against its SHA-512 checksum, and on Windows it also checks the code signature",
+          "source": "Auto Update (electron-builder)",
+          "url": "https://www.electron.build/docs/features/auto-update"
+        },
+        {
+          "text": "the update manager downloads RELEASES, compares it with its own copy, and checks each package against its SHA1 in that file",
+          "source": "Update Process (Squirrel.Windows docs on GitHub)",
+          "url": "https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/using/update-process.md"
+        }
+      ],
+      "own": "an entry of files, or a path with no entry of files, with no sha512 or with a sha512 that is not the base64 of 64 bytes, and a line of RELEASES with no SHA1 of 40 hexadecimal digits; Sparkle and Tauri feeds carry signatures, not checksums, and are checked by missing-signature"
+    },
+    {
+      "rule": "size-mismatch",
+      "level": "error",
+      "kind": "electron",
+      "file": "examples/messy/release/latest-mac.yml",
+      "line": 5,
+      "column": 11,
+      "at": "examples/messy/release/latest-mac.yml:5",
+      "found": "the feed gives 132 bytes for \"Quillmere-Notes-3.2.0-mac.zip\", and the file in the dist folder has 123",
+      "fix": "build the feed again from the files that are uploaded, so that the sizes and checksums are theirs",
+      "basis": [
+        {
+          "text": "an update info file holds the version, a files list with the url, sha512 and size of each download, and the release name, notes and date; path and a top-level sha512 are kept for older clients",
+          "source": "Auto Update (electron-builder)",
+          "url": "https://www.electron.build/docs/features/auto-update"
+        },
+        {
+          "text": "an appcast item has sparkle:version, the version the machine compares, sparkle:shortVersionString for people, and an enclosure with the url, length and type of the archive",
+          "source": "Publishing an update (Sparkle)",
+          "url": "https://sparkle-project.org/documentation/publishing/"
+        },
+        {
+          "text": "each line of RELEASES holds the SHA1, the file name and the size of a full or delta package",
+          "source": "Staged Rollouts (Squirrel.Windows docs on GitHub)",
+          "url": "https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/using/staged-rollouts.md"
+        }
+      ],
+      "own": "only with --dist: the size of an entry of files, the length of an appcast enclosure and the size of a line of RELEASES, against the size of the file in the dist folder"
+    },
+    {
+      "rule": "hash-mismatch",
+      "level": "error",
+      "kind": "electron",
+      "file": "examples/messy/release/latest.yml",
+      "line": 4,
+      "column": 13,
+      "at": "examples/messy/release/latest.yml:4",
+      "found": "the sha512 of \"Quillmere-Notes-Setup-3.2.0.exe\" does not match the file in the dist folder, so the updater will refuse the download",
+      "fix": "build the feed again from the files that are uploaded; a file signed or changed after the feed was written needs a new checksum",
+      "basis": [
+        {
+          "text": "electron-updater checks each download against its SHA-512 checksum, and on Windows it also checks the code signature",
+          "source": "Auto Update (electron-builder)",
+          "url": "https://www.electron.build/docs/features/auto-update"
+        },
+        {
+          "text": "the update manager downloads RELEASES, compares it with its own copy, and checks each package against its SHA1 in that file",
+          "source": "Update Process (Squirrel.Windows docs on GitHub)",
+          "url": "https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/using/update-process.md"
+        }
+      ],
+      "own": "only with --dist: the sha512 of an electron-updater feed (base64) and the SHA1 of RELEASES (hexadecimal, of any case) against the file in the dist folder, worked out with node:crypto; a mismatch means the updater will refuse the download"
+    },
+    {
+      "rule": "invalid-rollout",
+      "level": "error",
+      "kind": "electron",
+      "file": "examples/messy/release/latest.yml",
+      "line": 13,
+      "column": 20,
+      "at": "examples/messy/release/latest.yml:13",
+      "found": "stagingPercentage is \"120\", not a number from 0 to 100",
+      "fix": "write the share as a number from 0 to 100 (a percentage for Squirrel.Windows, with # right after the size), and give a phased Sparkle item its pubDate",
+      "basis": [
+        {
+          "text": "a staged rollout is set by hand with stagingPercentage in the update info file, a number from 0 to 100 that is the share of users who get the version",
+          "source": "Auto Update (electron-builder)",
+          "url": "https://www.electron.build/docs/features/auto-update"
+        },
+        {
+          "text": "sparkle:phasedRolloutInterval gives the number of seconds between seven groups of users, and the item must then have a pubDate",
+          "source": "Publishing an update (Sparkle)",
+          "url": "https://sparkle-project.org/documentation/publishing/"
+        },
+        {
+          "text": "a staged rollout adds # and a percentage after the size, with no space before # for clients older than 1.4.0, and a pulled version must be followed by a higher one",
+          "source": "Staged Rollouts (Squirrel.Windows docs on GitHub)",
+          "url": "https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/using/staged-rollouts.md"
+        }
+      ],
+      "own": "a stagingPercentage that is not a number from 0 to 100, a sparkle:phasedRolloutInterval that is not a whole number of seconds above 0 or that has no pubDate in its item, and a \"# nn%\" of RELEASES that is not from 0% to 100% or has a space before #"
+    },
+    {
+      "rule": "version-not-increased",
+      "level": "error",
+      "kind": "tauri",
+      "file": "examples/messy/release/quillmere-sync.json",
+      "line": 2,
+      "column": 14,
+      "at": "examples/messy/release/quillmere-sync.json:2",
+      "found": "the version 1.4.0 is lower than 1.5.0 in the previous Tauri feed examples/messy/previous/quillmere-sync.json, so clients that have it will not update",
+      "fix": "give the release a version higher than the one already published; never publish a version again with other files",
+      "basis": [
+        {
+          "text": "a release that is pulled must be followed by a higher version number, not by the same version released again",
+          "source": "Auto Update (electron-builder)",
+          "url": "https://www.electron.build/docs/features/auto-update"
+        },
+        {
+          "text": "a staged rollout adds # and a percentage after the size, with no space before # for clients older than 1.4.0, and a pulled version must be followed by a higher one",
+          "source": "Staged Rollouts (Squirrel.Windows docs on GitHub)",
+          "url": "https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/using/staged-rollouts.md"
+        },
+        {
+          "text": "versions compare part by part as numbers, a pre-release ranks below its release, and build metadata is left out of the comparison",
+          "source": "Semantic Versioning",
+          "url": "https://semver.org/"
+        }
+      ],
+      "own": "only with --previous: the newest version of a feed against the newest version of the feed of the same name in --previous, or of the one feed of the same kind there; equal or lower is reported, because clients that have the previous version will not take it"
+    },
+    {
+      "rule": "missing-signature",
+      "level": "error",
+      "kind": "tauri",
+      "file": "examples/messy/release/quillmere-sync.json",
+      "line": 7,
+      "column": 20,
+      "at": "examples/messy/release/quillmere-sync.json:7",
+      "found": "the platform \"windows-x86_64\" has no signature, so the updater refuses the download",
+      "fix": "sign the archive with the private key of the app (generate_appcast for Sparkle, the signer of the Tauri CLI) and put the signature itself in the feed",
+      "basis": [
+        {
+          "text": "DSA signatures are deprecated and kept only for the move to EdDSA; after it, every update in the appcast carries its sparkle:edSignature",
+          "source": "Migrating to EdDSA from DSA (Sparkle)",
+          "url": "https://sparkle-project.org/documentation/eddsa-migration/"
+        },
+        {
+          "text": "an app keeps its EdDSA public key in SUPublicEDKey, every update is signed with the private key, and updates should be served over HTTPS",
+          "source": "Documentation, basic setup and EdDSA signatures (Sparkle)",
+          "url": "https://sparkle-project.org/documentation/"
+        },
+        {
+          "text": "the signature is the content of the .sig file of the build; a path or a URL in its place does not work",
+          "source": "Updater plugin (Tauri)",
+          "url": "https://v2.tauri.app/plugin/updater/"
+        }
+      ],
+      "own": "an enclosure of an appcast, delta enclosures too, with no sparkle:edSignature or one that is not the base64 of 64 bytes, and a Tauri platform with no signature or with a path or address in its place; the tool cannot check a signature against the public key of the app"
+    },
+    {
+      "rule": "dist-file-missing",
+      "level": "error",
+      "kind": "tauri",
+      "file": "examples/messy/release/quillmere-sync.json",
+      "line": 16,
+      "column": 14,
+      "at": "examples/messy/release/quillmere-sync.json:16",
+      "found": "\"Quillmere.Sync_1.4.0_amd64.AppImage\" is not in the dist folder examples/messy/dist",
+      "fix": "upload the file with the feed, or correct its name in the feed; names on a web server are compared with their case",
+      "basis": [
+        {
+          "text": "electron-builder writes latest.yml for Windows, latest-mac.yml for macOS and latest-linux.yml for Linux, and these files must be uploaded with the release for the app to find its update",
+          "source": "Auto Update (electron-builder)",
+          "url": "https://www.electron.build/docs/features/auto-update"
+        },
+        {
+          "text": "each line of RELEASES holds the SHA1, the file name and the size of a full or delta package",
+          "source": "Staged Rollouts (Squirrel.Windows docs on GitHub)",
+          "url": "https://github.com/Squirrel/Squirrel.Windows/blob/develop/docs/using/staged-rollouts.md"
+        }
+      ],
+      "own": "only with --dist: the file named by the last part of the address of each download of the newest version is looked for in the top of the dist folder, by its exact name; a file that differs only in the case of its name, a symbolic link, a folder and a file that cannot be read are reported too"
+    },
+    {
+      "rule": "mixed-hosts",
+      "level": "warning",
+      "kind": "sparkle",
+      "file": "examples/messy/release/appcast.xml",
+      "line": 21,
+      "column": 23,
+      "at": "examples/messy/release/appcast.xml:21",
+      "found": "the download is on cdn-eu.quillmere.test, while the first download of the feed is on downloads.quillmere.test",
+      "fix": "serve every download of the release from one host, or check that each host is one you run and that it holds the file",
+      "basis": [
+        {
+          "text": "an update info file holds the version, a files list with the url, sha512 and size of each download, and the release name, notes and date; path and a top-level sha512 are kept for older clients",
+          "source": "Auto Update (electron-builder)",
+          "url": "https://www.electron.build/docs/features/auto-update"
+        },
+        {
+          "text": "an appcast item has sparkle:version, the version the machine compares, sparkle:shortVersionString for people, and an enclosure with the url, length and type of the archive",
+          "source": "Publishing an update (Sparkle)",
+          "url": "https://sparkle-project.org/documentation/publishing/"
+        },
+        {
+          "text": "each platform key is OS-ARCH, with OS linux, darwin or windows and ARCH x86_64, aarch64, i686 or armv7, and each platform needs a url and a signature",
+          "source": "Updater plugin (Tauri)",
+          "url": "https://v2.tauri.app/plugin/updater/"
+        }
+      ],
+      "own": "the tool's own choice: every absolute download address of a feed whose host differs from the host of the first one; release notes links are not counted; a second host is often a leftover of an old server or a typo"
+    },
+    {
+      "rule": "missing-release-notes",
+      "level": "warning",
+      "kind": "sparkle",
+      "file": "examples/messy/release/appcast.xml",
+      "line": 23,
+      "column": 5,
+      "at": "examples/messy/release/appcast.xml:23",
+      "found": "the item of version 400 has no release notes: no sparkle:releaseNotesLink and no description",
+      "fix": "add release notes so that users see what the update changes",
+      "basis": [
+        {
+          "text": "an update info file holds the version, a files list with the url, sha512 and size of each download, and the release name, notes and date; path and a top-level sha512 are kept for older clients",
+          "source": "Auto Update (electron-builder)",
+          "url": "https://www.electron.build/docs/features/auto-update"
+        },
+        {
+          "text": "release notes of an item come from sparkle:releaseNotesLink or from its description",
+          "source": "Publishing an update (Sparkle)",
+          "url": "https://sparkle-project.org/documentation/publishing/"
+        },
+        {
+          "text": "the static JSON file needs version, a valid SemVer with or without a leading v, and platforms; notes is optional, and pub_date, when present, is RFC 3339",
+          "source": "Updater plugin (Tauri)",
+          "url": "https://v2.tauri.app/plugin/updater/"
+        }
+      ],
+      "own": "an electron-updater feed with no releaseNotes, an appcast item with no sparkle:releaseNotesLink, sparkle:fullReleaseNotesLink or description, and a Tauri feed with no notes; RELEASES has no place for notes"
+    },
+    {
+      "rule": "missing-release-notes",
+      "level": "warning",
+      "kind": "electron",
+      "file": "examples/messy/release/latest-linux.yml",
+      "line": 1,
+      "column": 1,
+      "at": "examples/messy/release/latest-linux.yml:1",
+      "found": "the feed has no releaseNotes, so the update dialog shows none",
+      "fix": "add release notes so that users see what the update changes",
+      "basis": [
+        {
+          "text": "an update info file holds the version, a files list with the url, sha512 and size of each download, and the release name, notes and date; path and a top-level sha512 are kept for older clients",
+          "source": "Auto Update (electron-builder)",
+          "url": "https://www.electron.build/docs/features/auto-update"
+        },
+        {
+          "text": "release notes of an item come from sparkle:releaseNotesLink or from its description",
+          "source": "Publishing an update (Sparkle)",
+          "url": "https://sparkle-project.org/documentation/publishing/"
+        },
+        {
+          "text": "the static JSON file needs version, a valid SemVer with or without a leading v, and platforms; notes is optional, and pub_date, when present, is RFC 3339",
+          "source": "Updater plugin (Tauri)",
+          "url": "https://v2.tauri.app/plugin/updater/"
+        }
+      ],
+      "own": "an electron-updater feed with no releaseNotes, an appcast item with no sparkle:releaseNotesLink, sparkle:fullReleaseNotesLink or description, and a Tauri feed with no notes; RELEASES has no place for notes"
+    },
+    {
+      "rule": "mixed-versions",
+      "level": "warning",
+      "kind": "electron",
+      "file": "examples/messy/release/latest-linux.yml",
+      "line": 1,
+      "column": 10,
+      "at": "examples/messy/release/latest-linux.yml:1",
+      "found": "latest-linux.yml offers 3.1.4, while latest-mac.yml and latest.yml of the channel \"latest\" offer 3.2.0",
+      "fix": "upload the feeds of every platform of the release together, or note why one platform stays behind",
+      "basis": [
+        {
+          "text": "electron-builder writes latest.yml for Windows, latest-mac.yml for macOS and latest-linux.yml for Linux, and these files must be uploaded with the release for the app to find its update",
+          "source": "Auto Update (electron-builder)",
+          "url": "https://www.electron.build/docs/features/auto-update"
+        },
+        {
+          "text": "the prerelease tag of the version picks the channel, latest, beta or alpha, and each channel gets update info files of its own",
+          "source": "Release Using Channels (electron-builder)",
+          "url": "https://www.electron.build/docs/tutorials/release-using-channels"
+        }
+      ],
+      "own": "the electron-updater feeds of one folder and one channel (latest.yml, latest-mac.yml and latest-linux.yml are the channel latest); each feed below the highest version of its channel is reported; Sparkle, Tauri and Squirrel.Windows feeds each hold one app and are not compared with others"
+    },
+    {
+      "rule": "missing-platform",
+      "level": "warning",
+      "kind": "tauri",
+      "file": "examples/messy/release/quillmere-sync.json",
+      "line": 5,
+      "column": 16,
+      "at": "examples/messy/release/quillmere-sync.json:5",
+      "found": "the feed has no platform \"darwin-aarch64\", which requiredPlatforms.tauri asks for, so that platform gets no update",
+      "fix": "add the platform to the release, or take it out of requiredPlatforms when the app is not built for it",
+      "basis": [
+        {
+          "text": "each platform key is OS-ARCH, with OS linux, darwin or windows and ARCH x86_64, aarch64, i686 or armv7, and each platform needs a url and a signature",
+          "source": "Updater plugin (Tauri)",
+          "url": "https://v2.tauri.app/plugin/updater/"
+        },
+        {
+          "text": "electron-builder writes latest.yml for Windows, latest-mac.yml for macOS and latest-linux.yml for Linux, and these files must be uploaded with the release for the app to find its update",
+          "source": "Auto Update (electron-builder)",
+          "url": "https://www.electron.build/docs/features/auto-update"
+        }
+      ],
+      "own": "a Tauri feed with no key of requiredPlatforms.tauri, and a folder of feeds that holds an electron-updater feed but not every file of requiredPlatforms.electron; files named one by one are not checked for the files beside them"
+    }
+  ],
+  "totals": {
+    "findings": 17,
+    "byLevel": {
+      "error": 12,
+      "warning": 5,
+      "info": 0
+    },
+    "hidden": 0,
+    "notListed": 0,
+    "feeds": 5
+  },
+  "result": {
+    "pass": false,
+    "failOn": "error",
+    "failing": 12,
+    "byLevel": {
+      "error": 12,
+      "warning": 5,
+      "info": 0
+    },
+    "text": "FAIL - 12 findings at or above error (12 error, 5 warning)"
+  },
+  "notes": [
+    "1 feed has no feed of the same name or kind in --previous, so its version is not compared"
+  ],
+  "notice": "This check reads the feed files and the files beside them on disk and fetches nothing. A finding is a lead with a file and a line, and a clean result is not a signature verification and not a certification (docs/limits.md)."
+}

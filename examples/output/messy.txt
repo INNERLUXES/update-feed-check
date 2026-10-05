@@ -1,0 +1,114 @@
+update-feed-check: examples/messy/release
+input: 1 folder and 0 files named; 5 feeds: 3 electron-updater, 1 Sparkle, 1 Tauri; 0 other files passed over; 0 folders inside passed over; 0 links not followed
+dist: examples/messy/dist, 7 files
+previous: examples/messy/previous, 4 feeds
+config: examples/config.json (Quillmere release review): Tauri platforms windows-x86_64, darwin-x86_64, darwin-aarch64 and linux-x86_64; electron-updater feeds latest.yml, latest-mac.yml and latest-linux.yml; minimum severity info; fail on error
+rules: missing-hash (error); missing-signature (error); missing-url (error); insecure-url (error); mixed-hosts (warning); invalid-version (error); item-order (error); duplicate-version (error); version-not-increased (error); dist-file-missing (error); size-mismatch (error); hash-mismatch (error); missing-platform (warning); invalid-rollout (error); mixed-versions (warning); missing-release-notes (warning); unreadable-feed (error); scan-limit (error)
+findings: 17 (12 error, 5 warning)
+
+Feeds (5)
+
+  feed                                        kind              version      entries  error  warning  info
+  examples/messy/release/appcast.xml          Sparkle           4.2.0 (420)  3        4      2        0
+  examples/messy/release/latest-linux.yml     electron-updater  3.1.4        1        2      2        0
+  examples/messy/release/latest-mac.yml       electron-updater  3.2.0        2        1      0        0
+  examples/messy/release/latest.yml           electron-updater  3.2.0        1        2      0        0
+  examples/messy/release/quillmere-sync.json  Tauri             1.4.0        3        3      1        0
+
+Rules (18)
+
+  rule                   level    findings
+  missing-hash           error    1
+  missing-signature      error    2
+  missing-url            error    0
+  insecure-url           error    1
+  mixed-hosts            warning  1
+  invalid-version        error    0
+  item-order             error    1
+  duplicate-version      error    0
+  version-not-increased  error    2
+  dist-file-missing      error    1
+  size-mismatch          error    1
+  hash-mismatch          error    1
+  missing-platform       warning  1
+  invalid-rollout        error    2
+  mixed-versions         warning  1
+  missing-release-notes  warning  2
+  unreadable-feed        error    0
+  scan-limit             error    0
+
+Findings (17)
+
+  ERROR    item-order             examples/messy/release/appcast.xml:8
+           the first item has sparkle:version 412, but the item at line 16 has 420, which is higher; put the newest item first
+           fix: put the items in order, newest first, as generate_appcast writes them
+
+  ERROR    insecure-url           examples/messy/release/appcast.xml:12
+           the download "http://downloads.quillmere.test/clip/QuillmereClip-4.1.2.zip" uses http, not https, so it can be read or changed on the way
+           fix: serve the file over https and write the https address in the feed
+
+  ERROR    invalid-rollout        examples/messy/release/appcast.xml:19
+           the item of version 420 has sparkle:phasedRolloutInterval but no pubDate, which Sparkle needs to place the groups of a phased rollout
+           fix: write the share as a number from 0 to 100 (a percentage for Squirrel.Windows, with # right after the size), and give a phased Sparkle item its pubDate
+
+  ERROR    missing-signature      examples/messy/release/appcast.xml:28
+           the enclosure of version 400 has no sparkle:edSignature, only the deprecated sparkle:dsaSignature
+           fix: sign the archive with the private key of the app (generate_appcast for Sparkle, the signer of the Tauri CLI) and put the signature itself in the feed
+
+  ERROR    version-not-increased  examples/messy/release/latest-linux.yml:1
+           the version 3.1.4 is the same as 3.1.4 in the previous electron-updater feed examples/messy/previous/latest-linux.yml, so clients that have it will not update
+           fix: give the release a version higher than the one already published; never publish a version again with other files
+
+  ERROR    missing-hash           examples/messy/release/latest-linux.yml:3
+           the file "Quillmere-Notes-3.1.4.AppImage" has no sha512, so electron-updater cannot check the download
+           fix: build the feed again with the tool that made it, so that each download has its checksum, rather than writing the value by hand
+
+  ERROR    size-mismatch          examples/messy/release/latest-mac.yml:5
+           the feed gives 132 bytes for "Quillmere-Notes-3.2.0-mac.zip", and the file in the dist folder has 123
+           fix: build the feed again from the files that are uploaded, so that the sizes and checksums are theirs
+
+  ERROR    hash-mismatch          examples/messy/release/latest.yml:4
+           the sha512 of "Quillmere-Notes-Setup-3.2.0.exe" does not match the file in the dist folder, so the updater will refuse the download
+           fix: build the feed again from the files that are uploaded; a file signed or changed after the feed was written needs a new checksum
+
+  ERROR    invalid-rollout        examples/messy/release/latest.yml:13
+           stagingPercentage is "120", not a number from 0 to 100
+           fix: write the share as a number from 0 to 100 (a percentage for Squirrel.Windows, with # right after the size), and give a phased Sparkle item its pubDate
+
+  ERROR    version-not-increased  examples/messy/release/quillmere-sync.json:2
+           the version 1.4.0 is lower than 1.5.0 in the previous Tauri feed examples/messy/previous/quillmere-sync.json, so clients that have it will not update
+           fix: give the release a version higher than the one already published; never publish a version again with other files
+
+  ERROR    missing-signature      examples/messy/release/quillmere-sync.json:7
+           the platform "windows-x86_64" has no signature, so the updater refuses the download
+           fix: sign the archive with the private key of the app (generate_appcast for Sparkle, the signer of the Tauri CLI) and put the signature itself in the feed
+
+  ERROR    dist-file-missing      examples/messy/release/quillmere-sync.json:16
+           "Quillmere.Sync_1.4.0_amd64.AppImage" is not in the dist folder examples/messy/dist
+           fix: upload the file with the feed, or correct its name in the feed; names on a web server are compared with their case
+
+  WARNING  mixed-hosts            examples/messy/release/appcast.xml:21
+           the download is on cdn-eu.quillmere.test, while the first download of the feed is on downloads.quillmere.test
+           fix: serve every download of the release from one host, or check that each host is one you run and that it holds the file
+
+  WARNING  missing-release-notes  examples/messy/release/appcast.xml:23
+           the item of version 400 has no release notes: no sparkle:releaseNotesLink and no description
+           fix: add release notes so that users see what the update changes
+
+  WARNING  missing-release-notes  examples/messy/release/latest-linux.yml:1
+           the feed has no releaseNotes, so the update dialog shows none
+           fix: add release notes so that users see what the update changes
+
+  WARNING  mixed-versions         examples/messy/release/latest-linux.yml:1
+           latest-linux.yml offers 3.1.4, while latest-mac.yml and latest.yml of the channel "latest" offer 3.2.0
+           fix: upload the feeds of every platform of the release together, or note why one platform stays behind
+
+  WARNING  missing-platform       examples/messy/release/quillmere-sync.json:5
+           the feed has no platform "darwin-aarch64", which requiredPlatforms.tauri asks for, so that platform gets no update
+           fix: add the platform to the release, or take it out of requiredPlatforms when the app is not built for it
+
+note: 1 feed has no feed of the same name or kind in --previous, so its version is not compared
+
+This check reads the feed files and the files beside them on disk and fetches nothing. A finding is a lead with a file and a line, and a clean result is not a signature verification and not a certification (docs/limits.md).
+
+RESULT: FAIL - 12 findings at or above error (12 error, 5 warning)

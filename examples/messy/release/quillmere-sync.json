@@ -1,0 +1,19 @@
+{
+  "version": "1.4.0",
+  "notes": "Sync resumes after the laptop wakes from sleep.",
+  "pub_date": "2026-09-14T09:30:00Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "",
+      "url": "https://downloads.quillmere.test/sync/Quillmere.Sync_1.4.0_x64-setup.exe"
+    },
+    "darwin-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIGEgbWFkZS11cCBrZXkKQ2hML2pzM0lZb2pxR3ZMcXluN1QwL3Z4cW1OeExtVlB6ZmFYdVhZM01IRT0KdHJ1c3RlZCBjb21tZW50OiBtYWRlIHVwIGZvciB0aGUgZXhhbXBsZSBzeW5jbWFjCkxjeHJ4dzJHS2luZjU2eEJSZkEybnhSSW9hWHFMME5jZkxIUXUvYjUrc009Cg==",
+      "url": "https://downloads.quillmere.test/sync/Quillmere.Sync_x64.app.tar.gz"
+    },
+    "linux-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIGEgbWFkZS11cCBrZXkKQ2dUZEgyRG5DUEUzbFU0WFVlVEttOFZWWG01UDhoSUhhZXBac2ZSdGJtND0KdHJ1c3RlZCBjb21tZW50OiBtYWRlIHVwIGZvciB0aGUgZXhhbXBsZSBzeW5jbGluCmxPazc4RnJCLzZybkNlckpHU29aZTZwMC91RE9yWGp3M3JQVWs3ZG1HU3c9Cg==",
+      "url": "https://downloads.quillmere.test/sync/Quillmere.Sync_1.4.0_amd64.AppImage"
+    }
+  }
+}
