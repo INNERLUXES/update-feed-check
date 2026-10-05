@@ -1,0 +1,10 @@
+* text=auto eol=lf
+# The example feeds and built files are kept byte for byte as written, so a test can read them with LF and with CRLF
+# line ends, and the checksums in the feeds stay the checksums of the files.
+examples/clean/** -text
+examples/messy/** -text
+examples/config.json -text
+# The example output is kept as the tool writes it; the CSV report ends its records with CRLF, as RFC 4180 writes.
+examples/output/** -text
+# The feeds and dummy built files of the examples are made-up input, not code of this project.
+examples/** linguist-documentation

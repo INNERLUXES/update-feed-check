@@ -1,0 +1,50 @@
+{
+  "name": "update-feed-check",
+  "version": "1.0.0",
+  "description": "Desktop app update feed check: reads the auto-update feeds of a release from disk before it goes out (electron-updater latest.yml files, Sparkle appcasts, Tauri updater JSON and Squirrel.Windows RELEASES), fetches nothing, and lists downloads with no checksum or signature, files, sizes and checksums that do not match the built files, addresses that are not https, versions that are not valid or do not go up, appcast items out of order, versions offered twice, missing platforms, invalid staged rollouts, missing release notes and mixed versions, with file and line. Text, JSON, CSV and GitHub annotation output, exit codes for a pipeline, no dependencies.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "bin": {
+    "update-feed-check": "bin/update-feed-check.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "docs",
+    "examples",
+    "research",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "test:coverage": "node --test --experimental-test-coverage \"test/*.test.js\"",
+    "check": "node tools/check.mjs",
+    "example": "node tools/example.mjs"
+  },
+  "keywords": [
+    "electron",
+    "electron-updater",
+    "tauri",
+    "sparkle",
+    "squirrel",
+    "auto-update",
+    "desktop-app",
+    "code-signing",
+    "release",
+    "cli"
+  ],
+  "author": "INNERLUXES <info@innerluxes.dev>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/INNERLUXES/update-feed-check.git"
+  },
+  "homepage": "https://innerluxes.dev/application/development/desktop/services"
+}
